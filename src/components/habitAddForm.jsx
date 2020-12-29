@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class HabitAddForm extends Component {
+class HabitAddForm extends PureComponent {
     formRef = React.createRef();
     inputRef = React.createRef();
 
@@ -15,6 +15,7 @@ class HabitAddForm extends Component {
 
 
     render() {
+        console.log('habitAddForm');
         return (
             <form ref={this.formRef} className="add-form" onSubmit={this.onSubmit}>
                 <input ref={this.inputRef} type="text" className="add-input" placeholder="Habit" />

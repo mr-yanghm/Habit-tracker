@@ -1,19 +1,30 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class Habit extends Component {
-    handleIncrement = ()=>{
+class Habit extends PureComponent {
+
+    componentDidMount() {
+        // timer 시작 등, 채팅 소켓 시작 등
+        console.log(`habit : ${this.props.habit.name} mounted`);
+    }
+
+    componentWillUnmount() {
+        // resources  해제 등
+        console.log(`habit : ${this.props.habit.name} unmounted`);
+    }
+    handleIncrement = () => {
         this.props.onIncrement(this.props.habit);
     }
-    handleDecrement = ()=>{
+    handleDecrement = () => {
         this.props.onDecrement(this.props.habit);
     }
-    
-    handleDelete = ()=>{
+
+    handleDelete = () => {
         this.props.onDelete(this.props.habit);
     }
     render() {
         // console.log(this.props.habit);
-        const {name, count} = this.props.habit;
+        const { name, count } = this.props.habit;
+        console.log(`habit ${name}`);
         return (
             <li className="habit">
                 <span className="habit-name">{name}</span>
@@ -28,7 +39,7 @@ class Habit extends Component {
                     <i className="fas fa-trash"></i>
                 </button>
             </li>
-            );
+        );
     }
 }
 
