@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./app";
 import "@fortawesome/fontawesome-free/js/all.js";
-import SimpleHabit from "./components/simpleHabit";
-import SimpleHabitHook from "./components/simpleHabitHook";
+import Habits from "./components/reStudy/Habits";
+import { ContextProvider } from "./components/reStudy/Context";
 
 ReactDOM.render(
   <React.StrictMode>
-    <SimpleHabitHook />
+    <ContextProvider>
+      <Habits />
+    </ContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
